@@ -29,18 +29,36 @@ function showPage(list, page) {
     `
 
       studentList.insertAdjacentHTML("beforeend", studentItem);
-
+         
     }
 
   }
 }
 
-
 /*
-Create the `addPagination` function
 This function will create and insert/append the elements needed for the pagination buttons
 */
+function addPagination(list) {
+  var numOfPages = Math.ceil(list.length / 9);
+  var linkList = document.querySelector(".link-list")
+  linkList.innerHTML = "";
+  for (let i = 0; i < numOfPages; i++) {
+    var button = `
+    <li>
+      <button type="button">${i+1}</button>
+    </li>
+  `
+    linkList.insertAdjacentHTML ("beforeend", button);
+  }
+  document.querySelector("button").className = "active";
+  linkList.addEventListener("click", (e) => {
+    if(e.target = "button") {
+      document.querySelector(".active").className = "";
+      e.target.className = "active";
+      showPage(list, e.target.textContent);
+    }
+  });
+}
+  showPage(data, 1);
+  addPagination(data);
 
-
-
-// Call functions
