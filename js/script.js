@@ -14,8 +14,7 @@ function showPage(list, page) {
   studentList.innerHTML = "";
   for (let i= 0; i < list.length; i++) {
     if (i >= startIndex && i < endIndex) {
-      
-     var studentItem = `  
+      var studentItem = `  
       <li class="student-item cf">
         <div class="student-details">
           <img class="avatar" src=${data[i].picture.medium} alt="Profile Picture">
@@ -25,13 +24,11 @@ function showPage(list, page) {
         <div class="joined-details">
           <span class="date">${data[i].registered.date}</span>
         </div>
-    </li>
-    `
-
-      studentList.insertAdjacentHTML("beforeend", studentItem);
+      </li>
+      `
+    studentList.insertAdjacentHTML("beforeend", studentItem);
          
     }
-
   }
 }
 
@@ -59,6 +56,7 @@ function addPagination(list) {
     }
   });
 }
-  showPage(data, 1);
-  addPagination(data);
+//call functions
+showPage(data, 1);
+addPagination(data);
 
